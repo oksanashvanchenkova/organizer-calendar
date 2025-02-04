@@ -1,0 +1,51 @@
+<div class="calendar">
+  <div class="controls">
+    <button (click)="setView('month')">Month</button>
+    <button (click)="setView('week')">Week</button>
+    <button (click)="setView('day')">Day</button>
+    <button (click)="setView('year')">Year</button>
+  </div>
+  <div class="navigation">
+    <button
+      (click)="
+        view === 'month'
+          ? changeMonth(-1)
+          : view === 'week'
+          ? changeWeek(-1)
+          : changeYear(-1)
+      "
+    >
+      ←
+    </button>
+    <span>{{ format(currentDate, "MMMM yyyy") }}</span>
+    <button
+      (click)="
+        view === 'month'
+          ? changeMonth(1)
+          : view === 'week'
+          ? changeWeek(1)
+          : changeYear(1)
+      "
+    >
+      →
+    </button>
+  </div>
+  @if(view !== 'year'){
+  <div class="calendar-grid">
+    @for( day of days; track day){
+    <div class="day">{{ format(day, "dd") }}</div>
+
+    }
+  </div>
+  } @else if(view === 'year'){
+  <div class="year-grid">
+    @for(week of weeks; track week){
+    <div>
+      @for(day of week; track day){
+      <div class="day">{{ format(day, "dd") }}</div>
+      }
+    </div>
+    }
+  </div>
+  }
+</div>
