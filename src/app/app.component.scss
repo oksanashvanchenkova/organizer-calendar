@@ -1,0 +1,43 @@
+:host {
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+}
+header {
+  grid-column: 1/4;
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  height: 100px;
+  background: linear-gradient(45deg, #9768a7, #7c2bff, #1472dc);
+  background-size: 300% 300%;
+  animation: gradientMove 6s infinite alternate;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+.logo {
+  font-size: 32px;
+  grid-column: 2;
+  font-weight: bold;
+  color: rgb(25 3 120);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 0 0 5px #ffffff78, 0 0 10px rgba(255, 255, 0, 0.234),
+    0 0 20px #00ffa699;
+}
+nav {
+  grid-column: 1/4;
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  border-top:3px solid rgb(25 3 120);
+  border-bottom:3px solid  rgb(25 3 120);
+}
+.content {
+  grid-column: 2;
+}
