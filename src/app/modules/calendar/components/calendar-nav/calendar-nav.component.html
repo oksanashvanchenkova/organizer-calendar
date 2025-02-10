@@ -1,0 +1,23 @@
+<button
+(click)="
+  view() === 'month'
+    ? changeMonth(-1)
+    : view() === 'week'
+    ? changeWeek(-1)
+    : changeYear(-1)
+"
+>
+←
+</button>
+<span>{{ format(currentDate(), "MMMM yyyy") }}</span>
+<button
+(click)="
+  view() === 'month'
+    ? changeMonth(1)
+    : view() === 'week'
+    ? changeWeek(1)
+    : changeYear(1)
+"
+>
+→
+</button>
