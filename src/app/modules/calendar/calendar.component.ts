@@ -16,16 +16,19 @@ import {
   endOfYear,
   eachWeekOfInterval
 } from 'date-fns';
+import { CalendarControlComponent } from './components/calendar-control/calendar-control.component';
+import { TCalendarType } from '../../core/models/types/calendar-view';
+import { CalendarNavComponent } from './components/calendar-nav/calendar-nav.component';
 
 @Component({
   selector: 'app-calendar',
   standalone: true,
-  imports: [],
+  imports: [CalendarControlComponent, CalendarNavComponent],
   templateUrl: './calendar.component.html',
   styleUrl: './calendar.component.scss'
 })
 export class CalendarComponent {
-  view = signal<'month' | 'week' | 'day' | 'year'>('month');
+  view = signal<TCalendarType>('month');
   currentDate = signal(new Date());
   days = signal<Date[]>([]);
   weeks = signal<Date[][]>([]);
@@ -34,7 +37,7 @@ export class CalendarComponent {
     this.generateCalendar();
   }
 
-  setView(view: 'month' | 'week' | 'day' | 'year') {
+  setView(view: TCalendarType) {
     this.view.set(view);
     this.generateCalendar();
   }

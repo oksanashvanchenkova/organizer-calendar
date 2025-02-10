@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { OrganizerNavComponent } from './components/organizer-nav/organizer-nav.component';
+import { OrganizerNavComponent } from './shared/organizer-nav/organizer-nav.component';
 
 @Component({
   selector: 'app-root',
